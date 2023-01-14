@@ -3,7 +3,7 @@
 
 ### Entity Diagram
 
-<img src="images/diagram1.png" width="300">
+<img src="images/diagram.png" width="400">
 
 ### 1.	What is the total amount each customer spent at the restaurant?
 ```sql
