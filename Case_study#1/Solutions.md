@@ -83,4 +83,4 @@ WHERE ranking = 1;
 ```
    **Output 2:**
    
-<img src="images/c1_q3_1.png" width="200">
+<img src="images/c1_q3_2.png" width="200">
