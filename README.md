@@ -5,4 +5,5 @@ I want to thank Danny Ma for providing these excellent case studies that have be
 
 ## :chopsticks: Case Study 1 - Danny's Diner
 
-![](image/c1.png)
+<img src="image/c1.png" width="400" />
+
