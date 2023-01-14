@@ -1,6 +1,10 @@
 # 🥢Case Study #1: Danny's Diner - Questions and Solutions
 (MS SQL Server)
 
+### Entity Diagram
+
+<img src="images/diagram.png">
+
 ### 1.	What is the total amount each customer spent at the restaurant?
 ```sql
 SELECT
