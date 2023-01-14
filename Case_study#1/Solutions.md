@@ -16,7 +16,7 @@ FROM sales
 JOIN menu ON sales.product_id = menu.product_id
 GROUP BY customer_id;
 ```
-   **Output:**
+   🪄 **Output:**
 
 <img src="images/c1_q1.png" width="200">
 
@@ -30,7 +30,7 @@ SELECT
 FROM sales
 GROUP BY customer_id;
 ```
-   **Output:**
+   🪄 **Output:**
    
 <img src="images/c1_q2.png" width="200">
 
@@ -58,7 +58,7 @@ FROM item_ranked_cte
 JOIN menu ON item_ranked_cte.product_id = menu.product_id
 WHERE ranking = 1;
 ```
-   **Output 1:**
+   🪄 **Output 1:**
    
 <img src="images/c1_q3_1.png" width="200">
 
@@ -81,7 +81,7 @@ FROM item_ranked_cte
 JOIN menu ON item_ranked_cte.product_id = menu.product_id
 WHERE ranking = 1;
 ```
-   **Output 2:**
+   🪄 **Output 2:**
    
 <img src="images/c1_q3_2.png" width="200">
 
@@ -97,8 +97,33 @@ JOIN menu ON sales.product_id = menu.product_id
 GROUP BY product_name
 ORDER BY product_name DESC;
 ```
-   **Output:**
+   🪄 **Output:**
    
 <img src="images/c1_q4.png" width="200">
+
+<hr>
+
+### 5. Which item was the most popular for each customer?
+```sql
+WITH popular_item_cte AS(
+  SELECT
+    customer_id,
+    product_id,
+    COUNT(product_id) AS item_count,
+    RANK() OVER(PARTITION BY customer_id ORDER BY COUNT(product_id) DESC) AS ranking
+  FROM sales
+  GROUP BY customer_id, product_id)
+
+SELECT
+  customer_id,
+  product_name,
+  item_count
+FROM popular_item_cte
+JOIN menu ON popular_item_cte.product_id = menu.product_id
+WHERE ranking = 1;
+```
+   🪄 **Output:**
+   
+<img src="images/c1_q5.png" width="200">
 
 <hr>
