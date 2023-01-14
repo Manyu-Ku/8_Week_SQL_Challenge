@@ -1,7 +1,7 @@
 # :chopsticks: Case Study 1 - Danny's Diner
 
-<img src="image/c1.png" width="400" />
+<img src="image/c1.png" width="400px">
 
 ## Entity Diagram
 
-<img src="image/c1.png" width="400" />
+![](image/diagram1.png)
