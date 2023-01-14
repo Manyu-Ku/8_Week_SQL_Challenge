@@ -71,7 +71,7 @@ WITH item_ranked_cte AS(
     customer_id,
     order_date,
     product_id,
-    ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY order_date) AS ranking
+    RANK() OVER(PARTITION BY customer_id ORDER BY order_date) AS ranking
   FROM sales)
 
 SELECT
@@ -81,6 +81,6 @@ FROM item_ranked_cte
 JOIN menu ON item_ranked_cte.product_id = menu.product_id
 WHERE ranking = 1;
 ```
-   **Output 1:**
+   **Output 2:**
    
 <img src="images/c1_q3_1.png" width="200">
