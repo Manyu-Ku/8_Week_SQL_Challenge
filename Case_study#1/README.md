@@ -8,7 +8,7 @@ Danny wants to use the data to answer a few simple questions about his customers
 ## Entity Diagram
 [Click to see schema creation](SchemaCreation.md)
 
-<img src="images/diagram1.png" width="450" />
+<img src="images/diagram.png" width="450" />
 
 ## Case Study Questions
 [Click to see my solutions](Solutions.md)
