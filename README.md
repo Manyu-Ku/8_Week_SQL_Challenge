@@ -4,3 +4,4 @@ I want to thank Danny Ma for providing these excellent case studies that have be
 
 
 ## :chopsticks: Case Study 1 - Danny's Diner
+![](images/c1)
