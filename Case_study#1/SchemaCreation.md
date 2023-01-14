@@ -58,3 +58,5 @@ VALUES
   ('A', '2021-01-07'),
   ('B', '2021-01-09');
 ```
+
+[Back to Case Study #1 homepage](Case_study#1)
