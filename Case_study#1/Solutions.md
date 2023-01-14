@@ -84,3 +84,21 @@ WHERE ranking = 1;
    **Output 2:**
    
 <img src="images/c1_q3_2.png" width="200">
+
+<hr>
+
+### 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+```sql
+SELECT TOP 1
+  product_name, 
+  COUNT(product_name) AS item_count
+FROM sales
+JOIN menu ON sales.product_id = menu.product_id
+GROUP BY product_name
+ORDER BY product_name DESC;
+```
+   **Output:**
+   
+<img src="images/c1_q4.png" width="200">
+
+<hr>
