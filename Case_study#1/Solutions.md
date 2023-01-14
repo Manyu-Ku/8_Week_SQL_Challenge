@@ -24,4 +24,4 @@ GROUP BY customer_id;
 ```
    **Output:**
    
-<img src="images/c1_q1.png">
+<img src="images/c1_q2.png">
