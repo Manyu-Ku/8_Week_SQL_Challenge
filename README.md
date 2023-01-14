@@ -4,7 +4,6 @@ I want to thank Danny Ma for providing these excellent case studies that have be
 
 
 ## :chopsticks: Case Study 1 - Danny's Diner
-[Click to see my case study](Case_study%231/README.md)
 
 <img src="images/c1.png" width="400" />
 
