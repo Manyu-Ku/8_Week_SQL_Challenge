@@ -124,6 +124,64 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q5.png" width="200">
+<img src="images/c1_q5.png" width="250">
 
 <hr>
+
+### 6. Which item was purchased first by the customer after they became a member?
+```sql
+WITH member_orders_cte AS(
+SELECT
+  sales.customer_id,
+  order_date,
+  join_date,
+  product_id, 
+  RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date) AS ranking
+FROM sales
+JOIN members ON sales.customer_id = members.customer_id
+WHERE order_date >= join_date)
+
+SELECT
+  customer_id,
+  product_name,
+  order_date,
+  join_date
+FROM member_orders_cte
+JOIN menu ON member_orders_cte.product_id = menu.product_id
+WHERE ranking = 1;
+```
+   🪄 **Output:**
+   
+<img src="images/c1_q6.png" width="250">
+
+<hr>
+
+### 7. Which item was purchased just before the customer became a member?
+```sql
+WITH nonmember_cte AS(
+SELECT
+  sales.customer_id,
+  order_date,
+  join_date,
+  product_id, 
+  RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date DESC) AS ranking
+FROM sales
+JOIN members ON sales.customer_id = members.customer_id
+WHERE order_date < join_date)
+
+SELECT
+  customer_id,
+  product_name,
+  order_date,
+  join_date
+FROM nonmember_cte
+JOIN menu ON nonmember_cte.product_id = menu.product_id
+WHERE ranking = 1;
+```
+   🪄 **Output:**
+   
+<img src="images/c1_q6.png" width="250">
+
+<hr>
+
+### 8. What are the total items and amount spent for each member before they became a member?
