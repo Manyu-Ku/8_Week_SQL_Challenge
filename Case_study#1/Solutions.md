@@ -277,3 +277,7 @@ GROUP BY customer_id;
    🪄 **Output:**
    
 <img src="images/c1_q10.png" width="200">
+
+<hr>
+
+[Click to see bonus questions and solutions]()
