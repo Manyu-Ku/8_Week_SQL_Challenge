@@ -49,7 +49,8 @@ WITH item_ranked_cte AS(
     order_date,
     product_id,
     ROW_NUMBER() OVER(PARTITION BY customer_id ORDER BY order_date) AS ranking
-  FROM sales)
+  FROM sales
+  )
 
 SELECT
   customer_id,
@@ -72,7 +73,8 @@ WITH item_ranked_cte AS(
     order_date,
     product_id,
     RANK() OVER(PARTITION BY customer_id ORDER BY order_date) AS ranking
-  FROM sales)
+  FROM sales
+  )
 
 SELECT
   customer_id,
@@ -112,7 +114,8 @@ WITH popular_item_cte AS(
     COUNT(product_id) AS item_count,
     RANK() OVER(PARTITION BY customer_id ORDER BY COUNT(product_id) DESC) AS ranking
   FROM sales
-  GROUP BY customer_id, product_id)
+  GROUP BY customer_id, product_id
+  )
 
 SELECT
   customer_id,
@@ -131,15 +134,16 @@ WHERE ranking = 1;
 ### 6. Which item was purchased first by the customer after they became a member?
 ```sql
 WITH member_orders_cte AS(
-SELECT
-  sales.customer_id,
-  order_date,
-  join_date,
-  product_id, 
-  RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date) AS ranking
-FROM sales
-JOIN members ON sales.customer_id = members.customer_id
-WHERE order_date >= join_date)
+  SELECT
+    sales.customer_id,
+    order_date,
+    join_date,
+    product_id, 
+    RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date) AS ranking
+  FROM sales
+  JOIN members ON sales.customer_id = members.customer_id
+  WHERE order_date >= join_date
+  )
 
 SELECT
   customer_id,
@@ -159,15 +163,16 @@ WHERE ranking = 1;
 ### 7. Which item was purchased just before the customer became a member?
 ```sql
 WITH nonmember_cte AS(
-SELECT
-  sales.customer_id,
-  order_date,
-  join_date,
-  product_id, 
-  RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date DESC) AS ranking
-FROM sales
-JOIN members ON sales.customer_id = members.customer_id
-WHERE order_date < join_date)
+  SELECT
+    sales.customer_id,
+    order_date,
+    join_date,
+    product_id, 
+    RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date DESC) AS ranking
+  FROM sales
+  JOIN members ON sales.customer_id = members.customer_id
+  WHERE order_date < join_date
+  )
 
 SELECT
   customer_id,
@@ -219,3 +224,30 @@ GROUP BY sales.customer_id;
    🪄 **Output 2:**
    
 <img src="images/c1_q8_2.png" width="200">
+
+<hr>
+
+### 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+```sql
+WITH points_cte AS(
+  SELECT
+    customer_id,
+    CASE
+      WHEN product_name = 'sushi' THEN price*20
+      ELSE price*10
+    END AS points
+  FROM sales
+  JOIN menu ON sales.product_id = menu.product_id
+  )
+
+SELECT
+  customer_id,
+  SUM(points) AS total_points
+FROM points_cte
+GROUP BY customer_id;
+```
+   🪄 **Output:**
+   
+<img src="images/c1_q9.png" width="250">
+
+<hr>
