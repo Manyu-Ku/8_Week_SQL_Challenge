@@ -37,7 +37,7 @@ GROUP BY customer_id;
 <hr>
 
 ### 3. What was the first item from the menu purchased by each customer?
-There are two possible outputs using different functions as follow. The first output shows only one item that first recorded in the system, and the later shows all items purchased on the first purchasing date.
+There are two possible outputs using different functions as follow. The first output shows only one item that was first recorded in the system, and the latter shows all items purchased on the first purchasing date.
 
 **(1) Only shows the first item purchased by each customer, even they bought more than one item on the first purchase date**
 ```sql
@@ -185,8 +185,26 @@ WHERE ranking = 1;
 <hr>
 
 ### 8. What are the total items and amount spent for each member before they became a member?
+I provided two outputs, one output shows the results of customers who have become members, and the other one shows the results of all customers.
 ```sql
---Following is a query that includes customers who are not in the member list
+--Following is a query that only includes customers who are in the member list
+
+SELECT
+  sales.customer_id,
+  COUNT(DISTINCT sales.product_id) AS item_count,
+  SUM(price) AS total_amount
+FROM sales
+JOIN menu ON sales.product_id = menu.product_id
+JOIN members ON sales.customer_id = members.customer_id
+WHERE order_date < join_date
+GROUP BY sales.customer_id;
+```
+   🪄 **Output 1:**
+   
+<img src="images/c1_q8_1.png" width="200">
+
+```sql
+--Following is a query that also includes customers who are not in the member list
 
 SELECT
   sales.customer_id,
@@ -198,3 +216,6 @@ LEFT JOIN members ON sales.customer_id = members.customer_id
 WHERE order_date < join_date OR join_date IS NULL
 GROUP BY sales.customer_id;
 ```
+   🪄 **Output 2:**
+   
+<img src="images/c1_q8_2.png" width="200">
