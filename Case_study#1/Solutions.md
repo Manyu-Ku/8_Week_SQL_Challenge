@@ -185,3 +185,16 @@ WHERE ranking = 1;
 <hr>
 
 ### 8. What are the total items and amount spent for each member before they became a member?
+```sql
+--Following is a query that includes customers who are not in the member list
+
+SELECT
+  sales.customer_id,
+  COUNT(DISTINCT sales.product_id) AS item_count,
+  SUM(price) AS total_amount
+FROM sales
+JOIN menu ON sales.product_id = menu.product_id
+LEFT JOIN members ON sales.customer_id = members.customer_id
+WHERE order_date < join_date OR join_date IS NULL
+GROUP BY sales.customer_id;
+```
