@@ -11,7 +11,7 @@ Danny wants to use the data to answer a few simple questions about his customers
 <img src="images/diagram.png" width="450" />
 
 ## Case Study Questions
-[Click to see my solutions](Solutions.md)
+[Click to see my solutions](Questions_and_Solutions.md)
 1. What is the total amount each customer spent at the restaurant?
 2. How many days has each customer visited the restaurant?
 3. What was the first item from the menu purchased by each customer?
