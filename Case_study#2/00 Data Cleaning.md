@@ -21,7 +21,7 @@ Nothing needs to be changed for this table.:+1:
 | :---: | :---: |
 | <img src="images/c2_t2.png" width="300"> | <img src="images/t2_d.png" width="150"> |
 
-**Issues:** colums exclusions and extras have non-standardized null value
+**Issues:** columns ```exclusions``` and ```extras``` have non-standardized null value
 ```sql
 -- column: exclusions - standardize the NULL value
 
@@ -44,4 +44,10 @@ WHERE extras = '' OR extras = 'null';
 ### Table 3: runner_orders
 | Original table | Data Type |
 | :---: | :---: |
-| <img src="images/c2_t3.png" width="300"> | <img src="images/t3_d.png" width="150"> |
+| <img src="images/c2_t3.png" width="350"> | <img src="images/t3_d.png" width="150"> |
+
+**Issues:**
+ 1. Column ```pickup_time```'s data type should be DATETIME.
+ 2. The value of column ```distance``` should be standardized, and the data type should be DECIMAL for further calculations.
+ 3. The value of column ```duration``` should be standardized, and the data type should be INTEGER for further calculations.
+ 4. Column ```cancellation```'s null value should be standardized.
