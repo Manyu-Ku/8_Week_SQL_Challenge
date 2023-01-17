@@ -1,4 +1,5 @@
-# 🥢Case Study #1: Danny's Diner - Questions and Solutions
+# Case Study #2: Pizza Runner 
+## A. Pizza Metrics
 (MS SQL Server)
 
 ### Entity Diagram
