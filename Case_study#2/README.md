@@ -13,7 +13,7 @@ As part of this case study, you will find sections focusing on:
 ## Entity Diagram
 [Click to see schema creation](SchemaCreation.md)
 
-<img src="images/diagram.png" width="450" />
+<img src="images/diagram_1.png" width="450" />
 
 ## Case Study Questions
 [Click to see my solutions](Questions_and_Solutions.md)
