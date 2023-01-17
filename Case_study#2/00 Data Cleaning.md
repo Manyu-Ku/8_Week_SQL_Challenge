@@ -12,7 +12,7 @@
 ### Table 1: runners
 | Original table | Data Type |
 | :---: | :---: |
-| <img src="images/c2_t1.png" width="200"> | <img src="images/t1_d.png" width="150"> |
+| <img src="images/c2_t1.png" width="150"> | <img src="images/t1_d.png" width="150"> |
 
 Nothing needs to be changed for this table.:+1:
 
