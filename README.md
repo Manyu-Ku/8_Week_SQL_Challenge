@@ -7,7 +7,7 @@ I want to thank Danny Ma for providing these excellent case studies that have be
 
 <img src="images/c1.png" width="400" />
 
-## [Case Study 2 - Pizza Runner]()
+## [Case Study 2 - Pizza Runner](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%232)
 
 <img src="images/c2.png" width="400" />
 
