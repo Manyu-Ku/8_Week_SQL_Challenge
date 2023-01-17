@@ -1,5 +1,5 @@
-# Case Study #2: Pizza Runner 
-## A. Pizza Metrics
+## 🍕 Case Study #2: Pizza Runner 
+<h1 align='center'> A. Pizza Metrics </h1>
 (MS SQL Server)
 
 ### Entity Diagram
