@@ -27,6 +27,49 @@ LEFT JOIN members ON sales.customer_id = members.customer_id;
 ```
    🪄 **Output:**
 
-<img src="images/c1_b1.png" width="200">
+<img src="images/c1_b1.png" width="300">
+
+<hr>
+
+### 2. Rank all things
+Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
+
+```sql
+-- Step 1: Create a cte based on query 1 (Join all things)
+
+WITH merged_table_cte AS(
+  SELECT
+    sales.customer_id,
+    order_date,
+    product_name,
+    price,
+    CASE
+      WHEN join_date IS NULL THEN 'N'
+      WHEN order_date < join_date THEN 'N'
+      ELSE 'Y'
+    END AS member
+  FROM sales
+  JOIN menu ON sales.product_id = menu.product_id
+  LEFT JOIN members ON sales.customer_id = members.customer_id
+  )
+
+-- Step 2: Add column 'ranking' to show the order of items being purchased by each customer 
+--         after becoming members
+
+SELECT
+  customer_id,
+  order_date,
+  product_name,
+  price,
+  member,
+  CASE
+    WHEN member = 'N' THEN NULL
+    ELSE RANK() OVER(PARTITION BY customer_id, member ORDER BY order_date)
+  END AS rankng
+FROM merged_table_cte;
+```
+   🪄 **Output:**
+
+<img src="images/c1_b2.png" width="300">
 
 <hr>
