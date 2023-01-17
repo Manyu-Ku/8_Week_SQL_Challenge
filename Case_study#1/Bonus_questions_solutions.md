@@ -7,7 +7,7 @@
 
 <hr>
 
-### 1. Join all things
+### 1. Join all the things
 The following questions are related to creating basic data tables that Danny and his team can use to quickly derive insights without needing to join the underlying tables using SQL. Table should include following columns: **customer_id, order_date, product_name, price, member.**
 
 ```sql
@@ -31,11 +31,11 @@ LEFT JOIN members ON sales.customer_id = members.customer_id;
 
 <hr>
 
-### 2. Rank all things
+### 2. Rank all the things
 Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 
 ```sql
--- Step 1: Create a cte based on query 1 (Join all things)
+-- Step 1: Create a cte based on query 1 (Join all the things)
 
 WITH merged_table_cte AS(
   SELECT
