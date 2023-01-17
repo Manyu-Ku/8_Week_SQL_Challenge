@@ -3,7 +3,7 @@
 
 ### Entity Diagram
 
-<img src="images/diagram.png" width="400">
+<img src="images/diagram.png" width="300">
 
 <hr>
 
@@ -70,6 +70,6 @@ FROM merged_table_cte;
 ```
    🪄 **Output:**
 
-<img src="images/c1_b2.png" width="300">
+<img src="images/c1_b2.png" width="350">
 
 <hr>
