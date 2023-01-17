@@ -25,4 +25,8 @@ FROM sales
 JOIN menu ON sales.product_id = menu.product_id
 LEFT JOIN members ON sales.customer_id = members.customer_id;
 ```
+   🪄 **Output:**
 
+<img src="images/c1_b1.png" width="200">
+
+<hr>
