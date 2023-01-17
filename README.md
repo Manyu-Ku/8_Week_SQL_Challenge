@@ -3,7 +3,7 @@ This repository will keep track of my progress on how I use Microsoft SQL Server
 I want to thank Danny Ma for providing these excellent case studies that have been extremely helpful to me as I learn SQL skills.
 
 
-## Case Study 1 - Danny's Diner
+## [Case Study 1 - Danny's Diner](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%231)
 
 <img src="images/c1.png" width="400" />
 
