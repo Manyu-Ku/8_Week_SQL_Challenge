@@ -20,4 +20,4 @@ As part of this case study, you will find sections focusing on:
 
 <hr>
 
-Source: [Click to see original case study page from 8 Week SQL Challenge]([https://8weeksqlchallenge.com/case-study-1/](https://8weeksqlchallenge.com/case-study-2/)
+Source: [Click to see original case study page from 8 Week SQL Challenge]([https://8weeksqlchallenge.com/case-study-1/](https://8weeksqlchallenge.com/case-study-2/))
