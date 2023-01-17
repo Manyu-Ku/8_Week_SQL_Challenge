@@ -20,4 +20,20 @@ Nothing needs to be changed for this table.:+1:
 ### Table 2: customer_orders
 | Original table | Data Type |
 | :---: | :---: |
-| <img src="images/c2_t2.png" width="200"> | <img src="images/t2_d.png" width="150"> |
+| <img src="images/c2_t2.png" width="300"> | <img src="images/t2_d.png" width="150"> |
+```sql
+-- column: exclusions - standardize the NULL value
+
+UPDATE customer_orders
+SET exclusions = NULL
+WHERE exclusions = '' OR exclusions = 'null';
+
+-- column: extras - standardize the NULL value
+
+UPDATE customer_orders
+SET extras = NULL
+WHERE extras = '' OR extras = 'null';
+```
+| Cleaned table | Data Type |
+| :---: | :---: |
+| <img src="images/c2_t2.1.png" width="300"> | <img src="images/t2_d.png" width="150"> |
