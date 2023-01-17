@@ -3,12 +3,12 @@
 <img src="images/c2.png" width="450" />
 
 ## Business Problem
-As part of this case study, you will find sections focusing on:
+Throughout this case study, you will find sections on::
 
-- Pizza Metrics
-- Runner and Customer Experience
-- Ingredient Optimisation
-- Pricing and Ratings
+- A. Pizza Metrics
+- B. Runner and Customer Experience
+- C. Ingredient Optimisation
+- D. Pricing and Ratings
 
 ## Entity Diagram
 [Click to see schema creation](SchemaCreation.md)
@@ -16,7 +16,7 @@ As part of this case study, you will find sections focusing on:
 <img src="images/diagram_1.png" width="450" />
 
 ## Case Study Questions
-[Click to see my solutions](Questions_and_Solutions.md)
+
 
 <hr>
 
