@@ -13,8 +13,8 @@ Danny had started a new business called Pizza Runner, which is an idea of uberiz
 ## Case Study Questions:
 Throughout this case study, you will find sections on:
 
-- Data Cleaning
-- A. Pizza Metrics
+Data Cleaning
+A. Pizza Metrics
 
      <details><summary>Click to expand questions</summary>
       
@@ -38,7 +38,7 @@ Throughout this case study, you will find sections on:
      
       10. What was the volume of orders for each day of the week?
      </details>
-- B. Runner and Customer Experience
+B. Runner and Customer Experience
      <details><summary>Click to expand questions</summary>
       
       1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
@@ -55,9 +55,9 @@ Throughout this case study, you will find sections on:
       
       7. What is the successful delivery percentage for each runner?
      </details>
-- C. Ingredient Optimisation
+C. Ingredient Optimisation
 
-- D. Pricing and Ratings
+D. Pricing and Ratings
 
 <hr>
 
