@@ -3,7 +3,7 @@
 
 ### Entity Diagram
 
-<img src="images/diagram.png" width="400">
+<img src="images/diagram.png" width="300">
 
 <hr>
 
@@ -156,7 +156,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q6.png" width="250">
+<img src="images/c1_q6.png" width="300">
 
 <hr>
 
@@ -185,7 +185,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q6.png" width="250">
+<img src="images/c1_q6.png" width="300">
 
 <hr>
 
@@ -206,7 +206,7 @@ GROUP BY sales.customer_id;
 ```
    🪄 **Output 1:**
    
-<img src="images/c1_q8_1.png" width="200">
+<img src="images/c1_q8_1.png" width="250">
 
 ```sql
 --Following is a query that also includes customers who are not in the member list
@@ -223,7 +223,7 @@ GROUP BY sales.customer_id;
 ```
    🪄 **Output 2:**
    
-<img src="images/c1_q8_2.png" width="200">
+<img src="images/c1_q8_2.png" width="250">
 
 <hr>
 
