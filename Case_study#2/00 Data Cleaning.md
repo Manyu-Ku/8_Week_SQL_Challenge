@@ -51,3 +51,28 @@ WHERE extras = '' OR extras = 'null';
  2. The value of column ```distance``` should be standardized, and the data type should be DECIMAL for further calculations.
  3. The value of column ```duration``` should be standardized, and the data type should be INTEGER for further calculations.
  4. Column ```cancellation```'s null value should be standardized.
+```sql
+-- Standardized NULL value before changing data types
+
+-- column: pickup_time
+
+UPDATE runner_orders
+SET pickup_time = NULL
+WHERE pickup_time = 'null';
+
+ALTER TABLE runner_orders
+ALTER COLUMN pickup_time DATETIME;
+
+-- column: distance
+
+UPDATE runner_orders
+SET distance = NULL
+WHERE distance = 'null';
+
+UPDATE runner_orders
+SET distance = TRIM('km ' FROM distance)
+WHERE distance Like '%km';
+
+ALTER TABLE runner_orders
+ALTER COLUMN distance DECIMAL;
+```
