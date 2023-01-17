@@ -280,4 +280,4 @@ GROUP BY customer_id;
 
 <hr>
 
-👉[Click to see bonus questions and solutions](Bonus_questions_solutions.md)
+👉[Click to see bonus questions and solutions](02 Bonus_questions_solutions.md)
