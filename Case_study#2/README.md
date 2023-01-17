@@ -56,6 +56,7 @@ Throughout this case study, you will find sections on:
       7. What is the successful delivery percentage for each runner?
      </details>
 - C. Ingredient Optimisation
+
 - D. Pricing and Ratings
 
 <hr>
