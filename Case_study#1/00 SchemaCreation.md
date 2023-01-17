@@ -59,4 +59,4 @@ VALUES
   ('B', '2021-01-09');
 ```
 
-[Back to Case Study #1 homepage]((https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%231))
+[Back to Case Study #1 homepage](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%231)
