@@ -8,3 +8,6 @@
 ---
 :books:Based on the tables provided by Danny, I will clean the data table by table.
 
+### Table 1: runners
+Original table:
+<img src="images/c2_t1.png" width="400">
