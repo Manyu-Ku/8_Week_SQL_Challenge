@@ -5,7 +5,6 @@
 
 <img src="images/diagram_1.png" width="400">
 
-
  :books:Based on the tables provided by Danny, I will clean the data table by table.
 <hr>
 
@@ -21,6 +20,8 @@ Nothing needs to be changed for this table.:+1:
 | Original table | Data Type |
 | :---: | :---: |
 | <img src="images/c2_t2.png" width="300"> | <img src="images/t2_d.png" width="150"> |
+
+**Issues:** colums exclusions and extras have non-standardized null value
 ```sql
 -- column: exclusions - standardize the NULL value
 
@@ -34,6 +35,13 @@ UPDATE customer_orders
 SET extras = NULL
 WHERE extras = '' OR extras = 'null';
 ```
+**Result:**
 | Cleaned table | Data Type |
 | :---: | :---: |
 | <img src="images/c2_t2.1.png" width="300"> | <img src="images/t2_d.png" width="150"> |
+
+---
+### Table 3: runner_orders
+| Original table | Data Type |
+| :---: | :---: |
+| <img src="images/c2_t3.png" width="300"> | <img src="images/t3_d.png" width="150"> |
