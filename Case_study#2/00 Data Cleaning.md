@@ -125,3 +125,5 @@ Nothing needs to be changed for this table.:+1:
 | <img src="images/c2_t6.png" width="150"> | <img src="images/t6_d.png" width="100"> |
 
 Nothing needs to be changed for this table.:+1:
+
+[Back to Case Study #2 homepage](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%232)
