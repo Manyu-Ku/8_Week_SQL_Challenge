@@ -12,21 +12,19 @@ FROM customer_orders;
 ```
    🪄 **Output:**
 
-<img src="images/c2_a1.png" width="200">
+<img src="images/c2_a1.png" width="150">
 
 <hr>
 
 ### 2. How many unique customer orders were made?
 ```sql
 SELECT
-  customer_id,
-  COUNT(DISTINCT order_date) AS total_visited_days
-FROM sales
-GROUP BY customer_id;
+  COUNT(DISTINCT order_id) AS total_orders_count
+FROM customer_orders;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a2.png" width="200">
+<img src="images/c2_a2.png" width="150">
 
 <hr>
 
