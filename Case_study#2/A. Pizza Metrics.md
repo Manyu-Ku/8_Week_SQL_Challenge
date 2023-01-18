@@ -56,8 +56,8 @@ WITH delivered_cte AS(
 	)
 
 SELECT
-	pizza_name,
-	delivered_count
+  pizza_name,
+  delivered_count
 FROM delivered_cte AS d
 JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 ```
@@ -72,11 +72,10 @@ JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 WITH popular_item_cte AS(
   SELECT
     customer_id,
-    product_id,
-    COUNT(product_id) AS item_count,
-    RANK() OVER(PARTITION BY customer_id ORDER BY COUNT(product_id) DESC) AS ranking
-  FROM sales
-  GROUP BY customer_id, product_id
+    pizza_id,
+    COUNT(pizza_id) AS order_count
+  FROM customer_orders
+  GROUP BY customer_id, pizza_id
   )
 
 SELECT
