@@ -4,7 +4,7 @@
 
 <hr>
 
-### 1.	What is the total amount each customer spent at the restaurant?
+### 1. How many pizzas were ordered?
 ```sql
 SELECT
   customer_id,
@@ -15,11 +15,11 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
 
-<img src="images/c1_q1.png" width="200">
+<img src="images/c2_a1.png" width="200">
 
 <hr>
 
-### 2. 	How many days has each customer visited the restaurant?
+### 2. How many unique customer orders were made?
 ```sql
 SELECT
   customer_id,
@@ -29,11 +29,11 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q2.png" width="200">
+<img src="images/c2_a2.png" width="200">
 
 <hr>
 
-### 3. What was the first item from the menu purchased by each customer?
+### 3. How many successful orders were delivered by each runner?
 There are two possible outputs using different functions as follow. The first output shows only one item that was first recorded in the system, and the latter shows all items purchased on the first purchasing date.
 
 **(1) Only shows the first item purchased by each customer, even they bought more than one item on the first purchase date**
@@ -86,7 +86,7 @@ WHERE ranking = 1;
 
 <hr>
 
-### 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+### 4. How many of each type of pizza was delivered?
 ```sql
 SELECT TOP 1
   product_name, 
@@ -98,11 +98,11 @@ ORDER BY product_name DESC;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q4.png" width="200">
+<img src="images/c2_a4.png" width="200">
 
 <hr>
 
-### 5. Which item was the most popular for each customer?
+### 5. How many Vegetarian and Meatlovers were ordered by each customer?
 ```sql
 WITH popular_item_cte AS(
   SELECT
@@ -124,11 +124,11 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q5.png" width="250">
+<img src="images/c2_a5.png" width="250">
 
 <hr>
 
-### 6. Which item was purchased first by the customer after they became a member?
+### 6. What was the maximum number of pizzas delivered in a single order?
 ```sql
 WITH member_orders_cte AS(
   SELECT
@@ -153,11 +153,11 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q6.png" width="300">
+<img src="images/c2_a6.png" width="300">
 
 <hr>
 
-### 7. Which item was purchased just before the customer became a member?
+### 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 ```sql
 WITH nonmember_cte AS(
   SELECT
@@ -182,11 +182,11 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q6.png" width="300">
+<img src="images/c2_a7.png" width="300">
 
 <hr>
 
-### 8. What are the total items and amount spent for each member before they became a member?
+### 8. How many pizzas were delivered that had both exclusions and extras?
 I provided two outputs, one output shows the results of customers who have become members, and the other one shows the results of all customers.
 ```sql
 --Following is a query that only includes customers who are in the member list
@@ -224,7 +224,7 @@ GROUP BY sales.customer_id;
 
 <hr>
 
-### 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+### 9. What was the total volume of pizzas ordered for each hour of the day?
 ```sql
 WITH points_cte AS(
   SELECT
@@ -245,11 +245,11 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q9.png" width="200">
+<img src="images/c2_a9.png" width="200">
 
 <hr>
 
-### 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?
+### 10. What was the volume of orders for each day of the week?
 ```sql
 WITH member_points_cte AS(
   SELECT
@@ -273,7 +273,7 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q10.png" width="200">
+<img src="images/c2_a10.png" width="200">
 
 <hr>
 
