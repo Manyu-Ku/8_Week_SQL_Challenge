@@ -99,3 +99,9 @@ WHERE cancellation = 'null' OR cancellation = '' ;
 | Cleaned table | Data Type |
 | :---: | :---: |
 | <img src="images/c2_t3.1.png" width="300"> | <img src="images/t3_d1.png" width="150"> |
+
+---
+### Table 4: pizza_names
+| Original table | Data Type |
+| :---: | :---: |
+| <img src="images/c2_t4.png" width="200"> | <img src="images/t4_d.png" width="150"> |
