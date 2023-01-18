@@ -7,7 +7,7 @@
 
  :books:Based on the tables provided by Danny, I will clean the data table by table.
   
-  **However, only [table 2](#table-2-customer_orders) and [table 3](#table-3-runner-orders) were modified.**
+  **However, only [table 2](#table-2-customer_orders) and [table 3](#table-3-runner_orders) were modified.**
 <hr>
 
 ### Table 1: runners
