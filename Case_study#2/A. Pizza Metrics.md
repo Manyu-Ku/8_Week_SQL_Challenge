@@ -103,7 +103,7 @@ ORDER BY pizzas_count DESC;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a6.png" width="300">
+<img src="images/c2_a6.png" width="200">
 
 <hr>
 
