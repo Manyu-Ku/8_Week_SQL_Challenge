@@ -104,4 +104,22 @@ WHERE cancellation = 'null' OR cancellation = '' ;
 ### Table 4: pizza_names
 | Original table | Data Type |
 | :---: | :---: |
-| <img src="images/c2_t4.png" width="200"> | <img src="images/t4_d.png" width="150"> |
+| <img src="images/c2_t4.png" width="150"> | <img src="images/t4_d.png" width="100"> |
+
+Nothing needs to be changed for this table.:+1:
+
+---
+### Table 5: pizza_recipes
+| Original table | Data Type |
+| :---: | :---: |
+| <img src="images/c2_t5.png" width="150"> | <img src="images/t5_d.png" width="100"> |
+
+Nothing needs to be changed for this table.:+1:
+
+---
+### Table 6: pizza_toppings
+| Original table | Data Type |
+| :---: | :---: |
+| <img src="images/c2_t6.png" width="150"> | <img src="images/t6_d.png" width="100"> |
+
+Nothing needs to be changed for this table.:+1:
