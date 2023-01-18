@@ -93,26 +93,13 @@ JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 
 ### 6. What was the maximum number of pizzas delivered in a single order?
 ```sql
-WITH member_orders_cte AS(
-  SELECT
-    sales.customer_id,
-    order_date,
-    join_date,
-    product_id, 
-    RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date) AS ranking
-  FROM sales
-  JOIN members ON sales.customer_id = members.customer_id
-  WHERE order_date >= join_date
-  )
-
-SELECT
-  customer_id,
-  product_name,
-  order_date,
-  join_date
-FROM member_orders_cte
-JOIN menu ON member_orders_cte.product_id = menu.product_id
-WHERE ranking = 1;
+SELECT TOP 1
+  COUNT(co.order_id) AS pizzas_count
+FROM customer_orders AS co
+JOIN runner_orders AS ro ON co.order_id = ro.order_id
+WHERE cancellation IS NULL
+GROUP BY co.order_id 
+ORDER BY pizzas_count DESC;
 ```
    🪄 **Output:**
    
