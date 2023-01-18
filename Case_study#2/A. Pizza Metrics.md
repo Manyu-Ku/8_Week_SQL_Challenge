@@ -69,7 +69,7 @@ JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 
 ### 5. How many Vegetarian and Meatlovers were ordered by each customer?
 ```sql
-WITH popular_item_cte AS(
+WITH distribution_cte AS(
   SELECT
     customer_id,
     pizza_id,
@@ -79,12 +79,11 @@ WITH popular_item_cte AS(
   )
 
 SELECT
+  pizza_name,
   customer_id,
-  product_name,
-  item_count
-FROM popular_item_cte
-JOIN menu ON popular_item_cte.product_id = menu.product_id
-WHERE ranking = 1;
+  order_count
+FROM distribution_cte AS d
+JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 ```
    🪄 **Output:**
    
