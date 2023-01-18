@@ -2,10 +2,6 @@
 <h1 align='center'> 🍕 A. Pizza Metrics </h1>
 (MS SQL Server)
 
-### Entity Diagram
-
-<img src="images/diagram.png" width="300">
-
 <hr>
 
 ### 1.	What is the total amount each customer spent at the restaurant?
