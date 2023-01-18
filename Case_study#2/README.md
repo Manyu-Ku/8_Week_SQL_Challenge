@@ -15,7 +15,7 @@ Throughout this case study, you will find sections on:
 
 **[Data Cleaning](00%20Data%20Cleaning.md)**
 
-**A. Pizza Metrics**
+**[A. Pizza Metrics](A.%20Pizza%20Metrics.md)**
 <details><summary>Click to expand questions</summary>
       
       1. How many pizzas were ordered?
