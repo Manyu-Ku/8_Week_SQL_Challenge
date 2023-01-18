@@ -6,7 +6,7 @@
 Danny had started a new business called Pizza Runner, which is an idea of uberized pizza business! He was very aware that data collection was going to be critical for his business’ growth. He has prepared for us an entity relationship diagram of his database design but requires further assistance to clean his data and apply some basic calculations so he can better direct his runners and optimise Pizza Runner’s operations.
 
 ## Entity Diagram
-[Click to see schema creation](SchemaCreation.md)
+[Click to see schema creation](00%20SchemaCreation.md)
 
 <img src="images/diagram_1.png" width="450" />
 
