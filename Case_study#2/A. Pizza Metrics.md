@@ -45,13 +45,21 @@ GROUP BY runner_id;
 
 ### 4. How many of each type of pizza was delivered?
 ```sql
-SELECT TOP 1
-  product_name, 
-  COUNT(product_name) AS item_count
-FROM sales
-JOIN menu ON sales.product_id = menu.product_id
-GROUP BY product_name
-ORDER BY product_name DESC;
+WITH delivered_cte AS(
+	SELECT
+		pizza_id,
+		COUNT(pizza_id) AS delivered_count
+	FROM customer_orders AS co
+	JOIN runner_orders AS ro ON co.order_id = ro.order_id
+	WHERE cancellation IS NULL
+	GROUP BY pizza_id
+	)
+
+SELECT
+	pizza_name,
+	delivered_count
+FROM delivered_cte AS d
+JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 ```
    🪄 **Output:**
    
