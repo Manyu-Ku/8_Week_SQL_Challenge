@@ -185,7 +185,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q6.png" width="300">
+<img src="images/c1_q7.png" width="300">
 
 <hr>
 
