@@ -1,4 +1,4 @@
-# 🥢Case Study #1: Danny's Diner - Bonus Questions and Solutions
+# Case Study #1: 🥢Danny's Diner - Bonus Questions and Solutions
 (MS SQL Server)
 
 ### Entity Diagram
