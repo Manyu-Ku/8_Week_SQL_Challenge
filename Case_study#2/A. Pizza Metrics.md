@@ -7,11 +7,8 @@
 ### 1. How many pizzas were ordered?
 ```sql
 SELECT
-  customer_id,
-  SUM(price) AS total_amount_spent
-FROM sales
-JOIN menu ON sales.product_id = menu.product_id
-GROUP BY customer_id;
+  COUNT(order_id) AS total_pizzas_count
+FROM customer_orders;
 ```
    🪄 **Output:**
 
