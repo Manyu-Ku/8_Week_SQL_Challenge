@@ -13,7 +13,7 @@ Danny had started a new business called Pizza Runner, which is an idea of uberiz
 ## Case Study Questions:
 Throughout this case study, you will find sections on:
 
-**Data Cleaning**
+**[Data Cleaning](00%20Data%20Cleaning.md)**
 
 **A. Pizza Metrics**
 <details><summary>Click to expand questions</summary>
