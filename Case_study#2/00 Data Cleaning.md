@@ -52,7 +52,7 @@ WHERE extras = '' OR extras = 'null';
  3. The value of column ```duration``` should be standardized, and the data type should be INTEGER for further calculations.
  4. Column ```cancellation```'s null value should be standardized.
 ```sql
--- Standardized NULL value before changing data types
+-- Reminder: Standardized NULL value before changing data types
 
 -- column: pickup_time
 
@@ -74,5 +74,28 @@ SET distance = TRIM('km ' FROM distance)
 WHERE distance Like '%km';
 
 ALTER TABLE runner_orders
-ALTER COLUMN distance DECIMAL;
+ALTER COLUMN distance DECIMAL(10, 1);
+
+-- column: duration
+
+UPDATE runner_orders
+SET duration = NULL
+WHERE duration = 'null';
+
+UPDATE runner_orders
+SET duration = TRIM(' minutes' FROM duration)
+WHERE duration Like '%min%';
+
+ALTER TABLE runner_orders
+ALTER COLUMN duration INTEGER;
+
+-- column: cancellation
+
+UPDATE runner_orders
+SET cancellation = NULL
+WHERE cancellation = 'null' OR cancellation = '' ;
 ```
+**Result:**
+| Cleaned table | Data Type |
+| :---: | :---: |
+| <img src="images/c2_t3.1.png" width="300"> | <img src="images/t3_d1.png" width="150"> |
