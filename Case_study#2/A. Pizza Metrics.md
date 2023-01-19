@@ -109,26 +109,28 @@ ORDER BY pizzas_count DESC;
 
 ### 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 ```sql
-WITH nonmember_cte AS(
+WITH changes_cte AS(
   SELECT
-    sales.customer_id,
-    order_date,
-    join_date,
-    product_id, 
-    RANK() OVER(PARTITION BY sales.customer_id ORDER BY order_date DESC) AS ranking
-  FROM sales
-  JOIN members ON sales.customer_id = members.customer_id
-  WHERE order_date < join_date
+    customer_id,
+    CASE
+    	WHEN exclusions IS NULL AND extras IS NULL THEN 0
+	ELSE 1
+    END AS changes,
+    CASE
+    	WHEN exclusions IS NULL AND extras IS NULL THEN 1
+	ELSE 0
+    END AS no_changes
+  FROM customer_orders AS co
+  JOIN runner_orders AS ro ON co.order_id = ro.order_id
+  WHERE cancellation IS NULL
   )
 
 SELECT
   customer_id,
-  product_name,
-  order_date,
-  join_date
-FROM nonmember_cte
-JOIN menu ON nonmember_cte.product_id = menu.product_id
-WHERE ranking = 1;
+  SUM(changes) AS customized,
+  SUM(no_changes) AS unchanged
+FROM changes_cte
+GROUP BY customer_id;
 ```
    🪄 **Output:**
    
