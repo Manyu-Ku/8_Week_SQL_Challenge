@@ -4,15 +4,21 @@
 
 <hr>
 
-### 1. How many pizzas were ordered?
+### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 ```sql
+-- The weekday of 2021-01-01 is Friday
+
+SET DATEFIRST 5
+
 SELECT
-  COUNT(order_id) AS total_pizzas_count
-FROM customer_orders;
+  DATEPART(week, registration_date) AS week_no,
+  COUNT(DATEPART(week, registration_date)) AS runners_registered
+FROM runners
+GROUP BY DATEPART(week, registration_date);
 ```
    🪄 **Output:**
 
-<img width="150" alt="c2_a1" src="https://user-images.githubusercontent.com/122411152/213336959-7280c9ee-f285-47cb-bf55-235918c18f3c.png">
+<img width="170" alt="c2_b1" src="https://user-images.githubusercontent.com/122411152/213526095-a4cd2289-44af-41e1-a526-19c25105e668.png">
 
 <hr>
 
