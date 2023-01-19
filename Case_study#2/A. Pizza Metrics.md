@@ -184,4 +184,4 @@ ORDER BY DATEPART(weekday,order_time);
 
 <hr>
 
-👉[Click to see bonus questions and solutions](Bonus_questions_solutions.md)
+👉Click to see next section [B. Runner and Customer Experience ](Bonus_questions_solutions.md)
