@@ -1,6 +1,6 @@
 # Case Study 1 - Danny's Diner
 
-<img src="images/c1.png" width="450" />
+<img src="https://user-images.githubusercontent.com/122411152/213343979-748c5166-761f-4d49-9bbc-81594c7f9352.png" width="450" />
 
 ## Business Problem
 Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
@@ -8,7 +8,7 @@ Danny wants to use the data to answer a few simple questions about his customers
 ## Entity Diagram
 [Click to see schema creation](SchemaCreation.md)
 
-<img src="images/diagram.png" width="450" />
+<img width="422" alt="diagram" src="https://user-images.githubusercontent.com/122411152/213344062-34680331-9967-4eeb-8058-17994b4790c1.png">
 
 ## Case Study Questions
 <details><summary>Click to expand</summary>
