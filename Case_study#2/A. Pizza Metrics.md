@@ -24,7 +24,7 @@ FROM customer_orders;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a2.png" width="150">
+<img width="150" alt="c2_a2" src="https://user-images.githubusercontent.com/122411152/213337201-32442632-7af6-4030-8d6e-a3ceedeac0f2.png">
 
 <hr>
 
@@ -39,7 +39,7 @@ GROUP BY runner_id;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a3.png" width="200">
+<img width="200" alt="c2_a3" src="https://user-images.githubusercontent.com/122411152/213337337-f3a599f6-433a-4149-aa54-804dd34156b5.png">
 
 <hr>
 
@@ -63,7 +63,7 @@ JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a4.png" width="200">
+<img width="200" alt="c2_a4" src="https://user-images.githubusercontent.com/122411152/213337481-42ed48ba-3527-42f9-b322-d17059d44769.png">
 
 <hr>
 
@@ -87,7 +87,7 @@ JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a5.png" width="250">
+<img width="250" alt="c2_a5" src="https://user-images.githubusercontent.com/122411152/213337687-ec8155ba-d271-41fd-b198-d3cfb07a4ccf.png">
 
 <hr>
 
