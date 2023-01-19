@@ -46,13 +46,13 @@ GROUP BY runner_id;
 ### 4. How many of each type of pizza was delivered?
 ```sql
 WITH delivered_cte AS(
-	SELECT
-		pizza_id,
-		COUNT(pizza_id) AS delivered_count
-	FROM customer_orders AS co
-	JOIN runner_orders AS ro ON co.order_id = ro.order_id
-	WHERE cancellation IS NULL
-	GROUP BY pizza_id
+  SELECT
+    pizza_id,
+    COUNT(pizza_id) AS delivered_count
+  FROM customer_orders AS co
+  JOIN runner_orders AS ro ON co.order_id = ro.order_id
+  WHERE cancellation IS NULL
+  GROUP BY pizza_id
 	)
 
 SELECT
