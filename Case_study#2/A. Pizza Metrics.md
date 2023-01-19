@@ -63,7 +63,7 @@ JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
 ```
    🪄 **Output:**
    
-<img width="200" alt="c2_a4" src="https://user-images.githubusercontent.com/122411152/213337481-42ed48ba-3527-42f9-b322-d17059d44769.png">
+<img width="220" alt="c2_a4" src="https://user-images.githubusercontent.com/122411152/213337481-42ed48ba-3527-42f9-b322-d17059d44769.png">
 
 <hr>
 
@@ -165,35 +165,22 @@ ORDER BY DATEPART(hour,order_time);
 ```
    🪄 **Output:**
    
-<img width="180" alt="c2_a9" src="https://user-images.githubusercontent.com/122411152/213338454-717e234a-4cdf-4455-af0e-a09e8533e1a2.png">
+<img width="170" alt="c2_a9" src="https://user-images.githubusercontent.com/122411152/213338454-717e234a-4cdf-4455-af0e-a09e8533e1a2.png">
 
 <hr>
 
 ### 10. What was the volume of orders for each day of the week?
 ```sql
-WITH member_points_cte AS(
-  SELECT
-    sales.customer_id,
-    CASE
-      WHEN product_name = 'sushi' THEN price*20
-      WHEN order_date BETWEEN join_date AND DATEADD(day, 6, join_date) THEN price*20
-      ELSE price*10
-    END AS points
-  FROM sales
-  JOIN menu ON sales.product_id = menu.product_id
-  JOIN members ON sales.customer_id = members.customer_id
-  WHERE order_date < '2021-02-01'
-  )
-
 SELECT
-  customer_id,
-  SUM(points) AS total_points
-FROM member_points_cte
-GROUP BY customer_id;
+  DATENAME(weekday, DATEPART(weekday, order_time)) AS week_day,
+  COUNT(order_id) AS total_orders
+FROM customer_orders
+GROUP BY DATEPART(weekday,order_time)
+ORDER BY DATEPART(weekday,order_time);
 ```
    🪄 **Output:**
    
-<img src="images/c2_a10.png" width="200">
+<img width="180" alt="c2_a10" src="https://user-images.githubusercontent.com/122411152/213339711-ef088a84-0adf-414d-91f6-fdff309cf22e.png">
 
 <hr>
 
