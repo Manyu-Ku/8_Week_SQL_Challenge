@@ -9,7 +9,7 @@ I want to thank Danny Ma for providing these excellent case studies that have be
 
 ## [Case Study 2 - Pizza Runner](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%232)
 
-<img src="images/c2.png" width="400" />
+<img src="https://user-images.githubusercontent.com/122411152/213340568-f4c531de-1d97-4bff-8eb8-530cc7100c02.png" width="400" />
 
 
 More cases will be added in the future :rocket:
