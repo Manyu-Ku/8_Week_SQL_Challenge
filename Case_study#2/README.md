@@ -39,7 +39,7 @@ Throughout this case study, you will find sections on:
       10. What was the volume of orders for each day of the week?
 </details>
      
-**B. Runner and Customer Experience**
+**[B. Runner and Customer Experience](B.%20Runner%20and%20Customer%20Experience.md)**
 <details><summary>Click to expand questions</summary>
       
       1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
