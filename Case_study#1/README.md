@@ -40,7 +40,7 @@ To create an useful table that contains all the information needed:
   * Join all the things
   * Rank all the things
 
-[My solutions](Bonus_questions_solutions.md)
+[My solutions](02%20Bonus_questions_solutions.md)
 
 <hr>
 
