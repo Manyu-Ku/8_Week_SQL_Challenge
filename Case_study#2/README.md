@@ -8,7 +8,7 @@ Danny had started a new business called Pizza Runner, which is an idea of uberiz
 ## Entity Diagram
 [Click to see schema creation](00%20SchemaCreation.md)
 
-<img src="images/diagram_1.png" width="450" />
+<img width="422" alt="diagram" src="https://user-images.githubusercontent.com/122411152/213341170-0e74b0de-46d3-4a73-858c-1a27086bee0f.png">
 
 ## Case Study Questions:
 Throughout this case study, you will find sections on:
