@@ -103,7 +103,7 @@ ORDER BY pizzas_count DESC;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a6.png" width="150">
+<img src="images/c2_a6.png" width="100">
 
 <hr>
 
@@ -134,7 +134,7 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c2_a7.png" width="300">
+<img src="images/c2_a7.png" width="250">
 
 <hr>
 
@@ -150,7 +150,7 @@ WHERE cancellation IS NULL
 ```
    🪄 **Output:**
    
-<img src="images/c2_a8.png" width="150">
+<img src="images/c2_a8.png" width="200">
 
 <hr>
 
@@ -165,7 +165,7 @@ ORDER BY DATEPART(hour,order_time);
 ```
    🪄 **Output:**
    
-<img src="images/c2_a9.png" width="200">
+<img src="images/c2_a9.png" width="150">
 
 <hr>
 
