@@ -1,6 +1,6 @@
 # Case Study 2 - Pizza Runner
 
-<img src="images/c2.png" width="450" />
+<img src="https://user-images.githubusercontent.com/122411152/213340568-f4c531de-1d97-4bff-8eb8-530cc7100c02.png" width="450" />
 
 ## Business Problem
 Danny had started a new business called Pizza Runner, which is an idea of uberized pizza business! He was very aware that data collection was going to be critical for his business’ growth. He has prepared for us an entity relationship diagram of his database design but requires further assistance to clean his data and apply some basic calculations so he can better direct his runners and optimise Pizza Runner’s operations.
