@@ -5,7 +5,7 @@ I want to thank Danny Ma for providing these excellent case studies that have be
 
 ## [Case Study 1 - Danny's Diner](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%231)
 
-<img src="images/c1.png" width="400" />
+<img src="https://user-images.githubusercontent.com/122411152/213343979-748c5166-761f-4d49-9bbc-81594c7f9352.png" width="400" />
 
 ## [Case Study 2 - Pizza Runner](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/tree/main/Case_study%232)
 
