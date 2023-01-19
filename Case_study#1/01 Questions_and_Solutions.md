@@ -206,7 +206,7 @@ GROUP BY sales.customer_id;
 ```
    🪄 **Output 1:**
    
-<img src="images/c1_q8_1.png" width="250">
+<img width="230" alt="c1_q8_1" src="https://user-images.githubusercontent.com/122411152/213518005-f02405ec-1a80-4fff-abd1-da71da054937.png">
 
 ```sql
 --Following is a query that also includes customers who are not in the member list
@@ -223,7 +223,7 @@ GROUP BY sales.customer_id;
 ```
    🪄 **Output 2:**
    
-<img src="images/c1_q8_2.png" width="250">
+<img width="230" alt="c1_q8_2" src="https://user-images.githubusercontent.com/122411152/213518315-917a35d5-9a94-4579-ba88-c12f6a329e45.png">
 
 <hr>
 
@@ -248,7 +248,7 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q9.png" width="200">
+<img width="170" alt="c1_q9" src="https://user-images.githubusercontent.com/122411152/213518443-fb278762-8305-4de9-8569-db3c3b9f1858.png">
 
 <hr>
 
@@ -276,7 +276,7 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q10.png" width="200">
+<img width="170" alt="c1_q10" src="https://user-images.githubusercontent.com/122411152/213518818-e576a527-6432-4b60-8231-c1c7b97e2a68.png">
 
 <hr>
 
