@@ -1,5 +1,5 @@
 ##  Case Study #2: Pizza Runner 
-<h1 align='center'> 🍕 A. Pizza Metrics </h1>
+<h1 align='center'> 👥 B. Runner and Customer Experience </h1>
 (MS SQL Server)
 
 <hr>
@@ -138,50 +138,4 @@ GROUP BY customer_id;
 
 <hr>
 
-### 8. How many pizzas were delivered that had both exclusions and extras?
-```sql
-SELECT
-  COUNT(pizza_id) AS both_exclusions_and_extras
-FROM customer_orders AS co
-JOIN runner_orders AS ro ON co.order_id = ro.order_id
-WHERE cancellation IS NULL 
-  AND exclusions IS NOT NULL
-  AND extras IS NOT NULL;
-```
-   🪄 **Output:**
-   
-<img width="200" alt="c2_a8" src="https://user-images.githubusercontent.com/122411152/213338266-f6b83581-199c-4d27-971a-bc89fdfaa08b.png">
-
-<hr>
-
-### 9. What was the total volume of pizzas ordered for each hour of the day?
-```sql
-SELECT
-  DATEPART(hour,order_time) AS hour_time,
-  COUNT(order_id) AS total_orders
-FROM customer_orders
-GROUP BY DATEPART(hour,order_time)
-ORDER BY DATEPART(hour,order_time);
-```
-   🪄 **Output:**
-   
-<img width="170" alt="c2_a9" src="https://user-images.githubusercontent.com/122411152/213338454-717e234a-4cdf-4455-af0e-a09e8533e1a2.png">
-
-<hr>
-
-### 10. What was the volume of orders for each day of the week?
-```sql
-SELECT
-  DATENAME(weekday, DATEPART(weekday, order_time)) AS week_day,
-  COUNT(order_id) AS total_orders
-FROM customer_orders
-GROUP BY DATEPART(weekday,order_time)
-ORDER BY DATEPART(weekday,order_time);
-```
-   🪄 **Output:**
-   
-<img width="180" alt="c2_a10" src="https://user-images.githubusercontent.com/122411152/213339711-ef088a84-0adf-414d-91f6-fdff309cf22e.png">
-
-<hr>
-
-👉Click to see next section [B. Runner and Customer Experience ](Bonus_questions_solutions.md)
+👉Click to see next section [C. Ingredient Optimisation ](Bonus_questions_solutions.md)
