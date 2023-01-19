@@ -156,7 +156,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q6.png" width="300">
+<img width="280" alt="c1_q6" src="https://user-images.githubusercontent.com/122411152/213347845-f2d69f9e-d0c4-420c-a3b7-462f41a4bf31.png">
 
 <hr>
 
@@ -185,7 +185,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q7.png" width="300">
+<img width="280" alt="c1_q7" src="https://user-images.githubusercontent.com/122411152/213348048-8d52ae6d-cf74-49da-bf89-2c575e720b38.png">
 
 <hr>
 
