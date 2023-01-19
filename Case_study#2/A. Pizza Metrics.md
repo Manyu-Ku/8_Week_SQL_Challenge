@@ -139,40 +139,18 @@ GROUP BY customer_id;
 <hr>
 
 ### 8. How many pizzas were delivered that had both exclusions and extras?
-I provided two outputs, one output shows the results of customers who have become members, and the other one shows the results of all customers.
 ```sql
---Following is a query that only includes customers who are in the member list
-
 SELECT
-  sales.customer_id,
-  COUNT(DISTINCT sales.product_id) AS item_count,
-  SUM(price) AS total_amount
-FROM sales
-JOIN menu ON sales.product_id = menu.product_id
-JOIN members ON sales.customer_id = members.customer_id
-WHERE order_date < join_date
-GROUP BY sales.customer_id;
+  COUNT(pizza_id) AS both_exclusions_and_extras
+FROM customer_orders AS co
+JOIN runner_orders AS ro ON co.order_id = ro.order_id
+WHERE cancellation IS NULL 
+  AND exclusions IS NOT NULL
+  AND extras IS NOT NULL;
 ```
-   🪄 **Output 1:**
+   🪄 **Output:**
    
-<img src="images/c1_q8_1.png" width="250">
-
-```sql
---Following is a query that also includes customers who are not in the member list
-
-SELECT
-  sales.customer_id,
-  COUNT(DISTINCT sales.product_id) AS item_count,
-  SUM(price) AS total_amount
-FROM sales
-JOIN menu ON sales.product_id = menu.product_id
-LEFT JOIN members ON sales.customer_id = members.customer_id
-WHERE order_date < join_date OR join_date IS NULL
-GROUP BY sales.customer_id;
-```
-   🪄 **Output 2:**
-   
-<img src="images/c1_q8_2.png" width="250">
+<img src="images/c2_a8.png" width="250">
 
 <hr>
 
