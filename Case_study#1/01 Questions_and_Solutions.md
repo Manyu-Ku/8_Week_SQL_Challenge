@@ -3,7 +3,7 @@
 
 ### Entity Diagram
 
-<img src="images/diagram.png" width="300">
+<img width="400" alt="diagram" src="https://user-images.githubusercontent.com/122411152/213344062-34680331-9967-4eeb-8058-17994b4790c1.png">
 
 <hr>
 
@@ -18,7 +18,7 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
 
-<img src="images/c1_q1.png" width="200">
+<img width="200" alt="c1_q1" src="https://user-images.githubusercontent.com/122411152/213344515-5c9dd6fa-b5c5-4603-bf9b-cc992947e57d.png">
 
 <hr>
 
@@ -32,7 +32,7 @@ GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q2.png" width="200">
+<img width="200" alt="c1_q2" src="https://user-images.githubusercontent.com/122411152/213344634-b4dcae73-ba2d-439d-91d0-aec0bc926976.png">
 
 <hr>
 
@@ -61,7 +61,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output 1:**
    
-<img src="images/c1_q3_1.png" width="200">
+<img width="180" alt="c1_q3_1" src="https://user-images.githubusercontent.com/122411152/213344710-30e7e775-b955-453c-8cc1-3f88d8332e8d.png">
 
 **(2) Shows all the items purchased by each customer on their first purchase date**
 ```sql
@@ -85,7 +85,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output 2:**
    
-<img src="images/c1_q3_2.png" width="200">
+<img width="180" alt="c1_q3_2" src="https://user-images.githubusercontent.com/122411152/213344902-fd91ccd4-c201-4888-9a4f-4ff8be732bda.png">
 
 <hr>
 
@@ -101,7 +101,7 @@ ORDER BY product_name DESC;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q4.png" width="200">
+<img width="180" alt="c1_q4" src="https://user-images.githubusercontent.com/122411152/213345008-45e3375e-61c4-48cd-b516-59eac0704686.png">
 
 <hr>
 
@@ -127,7 +127,7 @@ WHERE ranking = 1;
 ```
    🪄 **Output:**
    
-<img src="images/c1_q5.png" width="250">
+<img width="250" alt="c1_q5" src="https://user-images.githubusercontent.com/122411152/213345140-c2a1da86-e6de-4b5b-bc53-9957ed9c3c10.png">
 
 <hr>
 
