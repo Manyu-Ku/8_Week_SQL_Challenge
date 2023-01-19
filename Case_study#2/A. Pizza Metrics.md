@@ -12,7 +12,7 @@ FROM customer_orders;
 ```
    🪄 **Output:**
 
-<img src="images/c2_a1.png" width="150">
+<img width="150" alt="c2_a1" src="https://user-images.githubusercontent.com/122411152/213336959-7280c9ee-f285-47cb-bf55-235918c18f3c.png">
 
 <hr>
 
