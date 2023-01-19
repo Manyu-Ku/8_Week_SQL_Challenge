@@ -3,7 +3,7 @@
 
 ### Entity Diagram
 
-<img src="images/diagram.png" width="300">
+<img width="400" alt="diagram" src="https://user-images.githubusercontent.com/122411152/213344062-34680331-9967-4eeb-8058-17994b4790c1.png">
 
 <hr>
 
@@ -27,7 +27,7 @@ LEFT JOIN members ON sales.customer_id = members.customer_id;
 ```
    🪄 **Output:**
 
-<img src="images/c1_b1.png" width="300">
+<img width="300" alt="c1_b1" src="https://user-images.githubusercontent.com/122411152/213519376-ca786237-f090-4bf4-a2e0-de30d10e7151.png">
 
 <hr>
 
@@ -70,6 +70,6 @@ FROM merged_table_cte;
 ```
    🪄 **Output:**
 
-<img src="images/c1_b2.png" width="350">
+<img width="350" alt="c1_b2" src="https://user-images.githubusercontent.com/122411152/213519471-d56e319d-b783-456b-9471-31af63cb4e32.png">
 
 <hr>
