@@ -150,28 +150,18 @@ WHERE cancellation IS NULL
 ```
    🪄 **Output:**
    
-<img src="images/c2_a8.png" width="250">
+<img src="images/c2_a8.png" width="150">
 
 <hr>
 
 ### 9. What was the total volume of pizzas ordered for each hour of the day?
 ```sql
-WITH points_cte AS(
-  SELECT
-    customer_id,
-    CASE
-      WHEN product_name = 'sushi' THEN price*20
-      ELSE price*10
-    END AS points
-  FROM sales
-  JOIN menu ON sales.product_id = menu.product_id
-  )
-
 SELECT
-  customer_id,
-  SUM(points) AS total_points
-FROM points_cte
-GROUP BY customer_id;
+  DATEPART(hour,order_time) AS hour_time,
+  COUNT(order_id) AS total_orders
+FROM customer_orders
+GROUP BY DATEPART(hour,order_time)
+ORDER BY DATEPART(hour,order_time);
 ```
    🪄 **Output:**
    
