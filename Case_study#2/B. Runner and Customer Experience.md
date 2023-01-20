@@ -2,6 +2,8 @@
 <h1 align='center'> 👥 B. Runner and Customer Experience </h1>
 (MS SQL Server)
 
+![](https://giphy.com/gifs/grass-grow-z2Wd0Fvm75L2)
+
 <hr>
 
 ### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
