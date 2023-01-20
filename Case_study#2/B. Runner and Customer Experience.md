@@ -76,7 +76,7 @@ GROUP BY customer_id;
 
 <hr>
 
-### 5. How many Vegetarian and Meatlovers were ordered by each customer?
+### 5. What was the difference between the longest and shortest delivery times for all orders?
 ```sql
 WITH distribution_cte AS(
   SELECT
