@@ -22,15 +22,16 @@ GROUP BY DATEPART(week, registration_date);
 
 <hr>
 
-### 2. How many unique customer orders were made?
+### 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pick up the order?
 ```sql
 SELECT
-  COUNT(DISTINCT order_id) AS total_orders_count
-FROM customer_orders;
+  AVG(DATEDIFF(minute, order_time, pickup_time)) AS avg_pickup_min
+FROM customer_orders AS co
+JOIN runner_orders AS ro ON co.order_id = ro.order_id;
 ```
    🪄 **Output:**
    
-
+<img width="120" alt="c2_b2" src="https://user-images.githubusercontent.com/122411152/213604515-5f13da13-2639-4f2c-8da9-7a7533dea537.png">
 
 <hr>
 
