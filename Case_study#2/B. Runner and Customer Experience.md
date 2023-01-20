@@ -18,7 +18,7 @@ GROUP BY DATEPART(week, registration_date);
 ```
    🪄 **Output:**
 
-<img width="170" alt="c2_b1" src="https://user-images.githubusercontent.com/122411152/213526095-a4cd2289-44af-41e1-a526-19c25105e668.png">
+<img width="180" alt="c2_b1" src="https://user-images.githubusercontent.com/122411152/213526095-a4cd2289-44af-41e1-a526-19c25105e668.png">
 
 <hr>
 
@@ -33,53 +33,46 @@ GROUP BY runner_id;
 ```
    🪄 **Output:**
    
-<img width="170" alt="c2_b2" src="https://user-images.githubusercontent.com/122411152/213607353-3036e2f0-ef9d-4f4f-91d3-cd4a7d51ebfc.png">
+<img width="180" alt="c2_b2" src="https://user-images.githubusercontent.com/122411152/213607353-3036e2f0-ef9d-4f4f-91d3-cd4a7d51ebfc.png">
 
 <hr>
 
 ### 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
 ```sql
-WITH orders_cte AS(
+WITH prep_cte AS(
   SELECT
-    co.order_id,
-    COUNT(order_id) AS pizzas_count   
+    COUNT(co.order_id) AS pizzas_count,
+	DATEDIFF(minute, order_time, pickup_time) AS prep_min
   FROM customer_orders AS co
   JOIN runner_orders AS ro ON co.order_id = ro.order_id
   WHERE cancellation IS NULL
+  GROUP BY co.order_id, order_time, pickup_time
   )
 
 SELECT
   pizzas_count,
-  DATEDIFF(minute, order_time, pickup_time) AS prep_min
-FROM orders_cte;
+  AVG(prep_min) AS avg_prep_min
+FROM prep_cte
+GROUP BY pizzas_count;
 ```
    🪄 **Output:**
    
-
+<img width="180" alt="c2_b3" src="https://user-images.githubusercontent.com/122411152/213609445-5909e0c7-f848-4678-b460-ec9db8b6637e.png">
 
 <hr>
 
-### 4. How many of each type of pizza was delivered?
+### 4. What was the average distance traveled for each customer?
 ```sql
-WITH delivered_cte AS(
-  SELECT
-    pizza_id,
-    COUNT(pizza_id) AS delivered_count
-  FROM customer_orders AS co
-  JOIN runner_orders AS ro ON co.order_id = ro.order_id
-  WHERE cancellation IS NULL
-  GROUP BY pizza_id
-	)
-
 SELECT
-  pizza_name,
-  delivered_count
-FROM delivered_cte AS d
-JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
+  customer_id,
+  ROUND(AVG(CAST(distance AS float)), 1) AS avg_distance
+FROM customer_orders AS co
+JOIN runner_orders AS ro ON co.order_id = ro.order_id
+GROUP BY customer_id;
 ```
    🪄 **Output:**
    
-
+<img width="180" alt="c2_b4" src="https://user-images.githubusercontent.com/122411152/213611299-503caeb2-805b-45fb-85cd-905b819b0a06.png">
 
 <hr>
 
