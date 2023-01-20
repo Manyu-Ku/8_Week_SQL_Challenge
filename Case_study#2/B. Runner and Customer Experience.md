@@ -6,7 +6,7 @@
 
 ### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 ```sql
--- The weekday of 2021-01-01 is Friday
+-- The weekday of 2021-01-01 is Friday, so we have to set the startday on Friday(5)
 
 SET DATEFIRST 5
 
@@ -25,24 +25,33 @@ GROUP BY DATEPART(week, registration_date);
 ### 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pick up the order?
 ```sql
 SELECT
+  runner_id,
   AVG(DATEDIFF(minute, order_time, pickup_time)) AS avg_pickup_min
 FROM customer_orders AS co
-JOIN runner_orders AS ro ON co.order_id = ro.order_id;
+JOIN runner_orders AS ro ON co.order_id = ro.order_id
+GROUP BY runner_id;
 ```
    🪄 **Output:**
    
-<img width="120" alt="c2_b2" src="https://user-images.githubusercontent.com/122411152/213604515-5f13da13-2639-4f2c-8da9-7a7533dea537.png">
+<img width="170" alt="c2_b2" src="https://user-images.githubusercontent.com/122411152/213607353-3036e2f0-ef9d-4f4f-91d3-cd4a7d51ebfc.png">
 
 <hr>
 
-### 3. How many successful orders were delivered by each runner?
+### 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
 ```sql
+WITH orders_cte AS(
+  SELECT
+    co.order_id,
+    COUNT(order_id) AS pizzas_count   
+  FROM customer_orders AS co
+  JOIN runner_orders AS ro ON co.order_id = ro.order_id
+  WHERE cancellation IS NULL
+  )
+
 SELECT
-  runner_id,
-  COUNT(order_id) AS delivered_orders
-FROM runner_orders
-WHERE cancellation IS NULL
-GROUP BY runner_id;
+  pizzas_count,
+  DATEDIFF(minute, order_time, pickup_time) AS prep_min
+FROM orders_cte;
 ```
    🪄 **Output:**
    
