@@ -42,7 +42,7 @@ GROUP BY runner_id;
 WITH prep_cte AS(
   SELECT
     COUNT(co.order_id) AS pizzas_count,
-	DATEDIFF(minute, order_time, pickup_time) AS prep_min
+    DATEDIFF(minute, order_time, pickup_time) AS prep_min
   FROM customer_orders AS co
   JOIN runner_orders AS ro ON co.order_id = ro.order_id
   WHERE cancellation IS NULL
@@ -78,72 +78,65 @@ GROUP BY customer_id;
 
 ### 5. What was the difference between the longest and shortest delivery times for all orders?
 ```sql
-WITH distribution_cte AS(
-  SELECT
-    customer_id,
-    pizza_id,
-    COUNT(pizza_id) AS order_count
-  FROM customer_orders
-  GROUP BY customer_id, pizza_id
-  )
-
 SELECT
-  pizza_name,
-  customer_id,
-  order_count
-FROM distribution_cte AS d
-JOIN pizza_names AS p ON d.pizza_id = p.pizza_id;
+  MAX(duration) - MIN(duration) AS min_difference
+FROM customer_orders AS co
+JOIN runner_orders AS ro ON co.order_id = ro.order_id
+WHERE cancellation IS NULL;
 ```
    🪄 **Output:**
    
-
+<img width="120" alt="c2_b5" src="https://user-images.githubusercontent.com/122411152/213875734-c9803115-8b1e-4d8f-9a31-b5eb6db954d3.png">
 
 <hr>
 
-### 6. What was the maximum number of pizzas delivered in a single order?
+### 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 ```sql
-SELECT TOP 1
-  COUNT(co.order_id) AS pizzas_count
+-- speed(km/hr) = distance(km) / duration(min) * 60
+
+-- average speed of each order
+SELECT
+  runner_id,
+  ro.order_id,
+  ROUND(CAST(distance AS FLOAT)/duration*60, 2) AS speed
 FROM customer_orders AS co
 JOIN runner_orders AS ro ON co.order_id = ro.order_id
 WHERE cancellation IS NULL
-GROUP BY co.order_id 
-ORDER BY pizzas_count DESC;
+GROUP BY runner_id, ro.order_id, distance, duration;
+
+-- average speed of each runner
+SELECT
+  runner_id,
+  ROUND(AVG(CAST(distance AS FLOAT)/duration*60), 2) AS avg_speed
+FROM customer_orders AS co
+JOIN runner_orders AS ro ON co.order_id = ro.order_id
+WHERE cancellation IS NULL
+GROUP BY runner_id;  
 ```
    🪄 **Output:**
    
+| Speed per Oder | Avg Speed per Runner |
+| --- | ---|
+| <img width="170" alt="c2_b6_1" src="https://user-images.githubusercontent.com/122411152/213879137-12fe019f-367f-410d-b7dd-840d5923f631.png"> | <img width="140" alt="c2_b6_2" src="https://user-images.githubusercontent.com/122411152/213879188-c7817d0d-6d5d-4e13-883d-187b70647c07.png"> |
 
+Runners' speeds seem to increase with experience.
 
 <hr>
 
-### 7. For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+### 7. What is the successful delivery percentage for each runner?
 ```sql
-WITH changes_cte AS(
-  SELECT
-    customer_id,
-    CASE
-    	WHEN exclusions IS NULL AND extras IS NULL THEN 0
-	ELSE 1
-    END AS changes,
-    CASE
-    	WHEN exclusions IS NULL AND extras IS NULL THEN 1
-	ELSE 0
-    END AS no_changes
-  FROM customer_orders AS co
-  JOIN runner_orders AS ro ON co.order_id = ro.order_id
-  WHERE cancellation IS NULL
-  )
-
 SELECT
-  customer_id,
-  SUM(changes) AS customized,
-  SUM(no_changes) AS unchanged
-FROM changes_cte
-GROUP BY customer_id;
+  runner_id,
+  CAST(SUM(CASE 
+             WHEN cancellation IS NULL THEN 1
+             ELSE 0
+           END) AS FLOAT)/COUNT(order_id) AS  successful_percentage
+FROM runner_orders
+GROUP BY runner_id;
 ```
    🪄 **Output:**
    
-
+<img width="200" alt="c2_b7" src="https://user-images.githubusercontent.com/122411152/213878898-e708e7f5-4e0b-4501-89fa-fa987ec0d726.png">
 
 <hr>
 
