@@ -58,7 +58,7 @@ Throughout this case study, you will find sections on:
 </details>
 
 
-**C. Ingredient Optimisation**
+**[C. Ingredient Optimisation](C.%20Ingredient%20Optimisation.md)**
 <details><summary>Click to expand questions</summary>
       
       1. What are the standard ingredients for each pizza?
