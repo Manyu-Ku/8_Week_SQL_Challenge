@@ -1,10 +1,10 @@
 ##  Case Study #2: Pizza Runner 
-<h1 align='center'> 👥 B. Runner and Customer Experience </h1>
+<h1 align='center'> 🧀 C. Ingredient Optimisation </h1>
 (MS SQL Server)
 
 <hr>
 
-### 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
+### 1. What are the standard ingredients for each pizza?
 ```sql
 -- The weekday of 2021-01-01 is Friday, so we have to set the startday on Friday(5)
 
