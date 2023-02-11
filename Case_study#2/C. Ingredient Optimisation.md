@@ -142,21 +142,4 @@ Runners' speeds seem to increase with experience.
 
 <hr>
 
-### 7. What is the successful delivery percentage for each runner?
-```sql
-SELECT
-  runner_id,
-  CAST(SUM(CASE 
-             WHEN cancellation IS NULL THEN 1
-             ELSE 0
-           END) AS FLOAT)/COUNT(order_id) AS  successful_percentage
-FROM runner_orders
-GROUP BY runner_id;
-```
-   🪄 **Output:**
-   
-<img width="200" alt="c2_b7" src="https://user-images.githubusercontent.com/122411152/213878898-e708e7f5-4e0b-4501-89fa-fa987ec0d726.png">
-
-<hr>
-
 👉Click to see next section [C. Ingredient Optimisation ](Bonus_questions_solutions.md)
