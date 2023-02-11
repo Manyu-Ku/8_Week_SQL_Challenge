@@ -54,33 +54,31 @@ ORDER BY frequency DESC;
 ```
    🪄 **Output:**
    
-<img width="180" alt="c2_c2" src="https://user-images.githubusercontent.com/122411152/218227906-af9f12ef-c1bf-4e3e-a00d-1649df921ba0.png">
+<img width="160" alt="c2_c2" src="https://user-images.githubusercontent.com/122411152/218227906-af9f12ef-c1bf-4e3e-a00d-1649df921ba0.png">
 
 <hr>
 
-### 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
+### 3. What was the most common exclusion?
 ```sql
-WITH prep_cte AS(
-  SELECT
-    COUNT(co.order_id) AS pizzas_count,
-    DATEDIFF(minute, order_time, pickup_time) AS prep_min
-  FROM customer_orders AS co
-  JOIN runner_orders AS ro ON co.order_id = ro.order_id
-  WHERE cancellation IS NULL
-  GROUP BY co.order_id, order_time, pickup_time
-  )
+WITH excluded_cte AS(
+  SELECT 
+    TRIM(value) AS excluded_topping,
+    COUNT(TRIM(value)) AS frequency
+  FROM customer_orders
+  CROSS APPLY STRING_SPLIT(exclusions, ',')
+  GROUP BY TRIM(value)
+	)
 
-SELECT
-  pizzas_count,
-  AVG(prep_min) AS avg_prep_min
-FROM prep_cte
-GROUP BY pizzas_count;
+SELECT 
+  topping_name,
+  frequency
+FROM excluded_cte
+JOIN pizza_toppings on excluded_cte.excluded_topping = pizza_toppings.topping_id
+ORDER BY frequency DESC;
 ```
    🪄 **Output:**
    
-<img width="180" alt="c2_b3" src="https://user-images.githubusercontent.com/122411152/213609445-5909e0c7-f848-4678-b460-ec9db8b6637e.png">
-
-<hr>
+<img width="160" alt="c2_c3" src="https://user-images.githubusercontent.com/122411152/218228645-ecce85d8-6bfe-4ea8-b3d4-3505458ec8d8.png">
 
 ### 4. What was the average distance traveled for each customer?
 ```sql
