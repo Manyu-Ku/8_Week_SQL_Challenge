@@ -6,34 +6,55 @@
 
 ### 1. What are the standard ingredients for each pizza?
 ```sql
--- The weekday of 2021-01-01 is Friday, so we have to set the startday on Friday(5)
+WITH topping_split_cte AS(
+  SELECT 
+    pizza_id, 
+    TRIM(value) AS topping_id
+  FROM pizza_recipes
+  CROSS APPLY STRING_SPLIT(CAST(toppings AS VARCHAR), ',')
+	)
 
-SET DATEFIRST 5
+SELECT 
+  pizza_id,
+  STRING_AGG(CAST(topping_name AS VARCHAR), ', ') AS ingredients
+INTO recipes
+FROM topping_split_cte AS split
+JOIN pizza_toppings AS topping ON split.topping_id = topping.topping_id
+GROUP BY pizza_id;
 
-SELECT
-  DATEPART(week, registration_date) AS week_no,
-  COUNT(DATEPART(week, registration_date)) AS runners_registered
-FROM runners
-GROUP BY DATEPART(week, registration_date);
+SELECT 
+  pizza_name,
+  ingredients
+FROM pizza_names
+JOIN recipes ON pizza_names.pizza_id = recipes.pizza_id;
 ```
    🪄 **Output:**
 
-<img width="180" alt="c2_b1" src="https://user-images.githubusercontent.com/122411152/213526095-a4cd2289-44af-41e1-a526-19c25105e668.png">
+<img width="430" alt="c2_c1" src="https://user-images.githubusercontent.com/122411152/218226258-9f17647a-6e3a-4f43-af3b-0cc52af93173.png">
 
 <hr>
 
-### 2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pick up the order?
+### 2. What was the most commonly added extra?
 ```sql
-SELECT
-  runner_id,
-  AVG(DATEDIFF(minute, order_time, pickup_time)) AS avg_pickup_min
-FROM customer_orders AS co
-JOIN runner_orders AS ro ON co.order_id = ro.order_id
-GROUP BY runner_id;
+WITH extra_cte AS(
+  SELECT 
+    TRIM(value) AS extra_topping,
+    COUNT(TRIM(value)) AS frequency
+  FROM customer_orders
+  CROSS APPLY STRING_SPLIT(extras, ',')
+  GROUP BY TRIM(value)
+	)
+
+SELECT 
+  topping_name,
+  frequency
+FROM extra_cte
+JOIN pizza_toppings on extra_cte.extra_topping = pizza_toppings.topping_id
+ORDER BY frequency DESC;
 ```
    🪄 **Output:**
    
-<img width="180" alt="c2_b2" src="https://user-images.githubusercontent.com/122411152/213607353-3036e2f0-ef9d-4f4f-91d3-cd4a7d51ebfc.png">
+<img width="180" alt="c2_c2" src="https://user-images.githubusercontent.com/122411152/218227906-af9f12ef-c1bf-4e3e-a00d-1649df921ba0.png">
 
 <hr>
 
