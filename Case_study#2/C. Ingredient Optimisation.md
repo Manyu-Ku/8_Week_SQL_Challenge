@@ -80,7 +80,7 @@ ORDER BY frequency DESC;
    
 <img width="160" alt="c2_c3" src="https://user-images.githubusercontent.com/122411152/218228645-ecce85d8-6bfe-4ea8-b3d4-3505458ec8d8.png">
 
-### 4. What was the average distance traveled for each customer?
+### 4. Generate an order item for each record in the customers_orders table in the format of text:
 ```sql
 SELECT
   customer_id,
