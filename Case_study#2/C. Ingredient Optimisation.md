@@ -82,12 +82,74 @@ ORDER BY frequency DESC;
 
 ### 4. Generate an order item for each record in the customers_orders table in the format of text:
 ```sql
+--Add IDENTITY row as record to make reference easily
+
+ALTER TABLE customer_orders
+ADD record INT IDENTITY(1,1);
+
+--Change extra toppings into string and create temp table #extras
+
+DROP TABLE IF EXISTS #extras;
+
+WITH add_cte AS(
+  SELECT
+    record,
+    TRIM(value) AS added
+  FROM customer_orders
+  CROSS APPLY STRING_SPLIT(extras, ',')
+  )
+
+SELECT 
+  record,
+  '- Extra ' + STRING_AGG(CAST(topping_name AS VARCHAR),', ') AS change
+INTO #extras
+FROM  add_cte
+JOIN pizza_toppings ON add_cte.added = pizza_toppings.topping_id
+GROUP BY record;
+
+--Change exclude toppings into string and create temp table #exclusions
+
+DROP TABLE IF EXISTS #exclusions;
+
+WITH excluded_cte AS(
+  SELECT
+    record,
+    TRIM(value) AS excluded
+  FROM customer_orders
+  CROSS APPLY STRING_SPLIT(exclusions, ',')
+  )
+
+SELECT 
+  record,
+  '- Exclude ' + STRING_AGG(CAST(topping_name AS VARCHAR),', ') AS change
+INTO #exclusions
+FROM  excluded_cte
+JOIN pizza_toppings ON excluded_cte.excluded = pizza_toppings.topping_id
+GROUP BY record;
+
+--Integrate #extras and #exclusions into #toppings
+
+WITH change_cte AS(
+  SELECT * FROM #extras
+  UNION
+  SELECT * FROM #exclusions
+  )
+
 SELECT
-  customer_id,
-  ROUND(AVG(CAST(distance AS float)), 1) AS avg_distance
-FROM customer_orders AS co
-JOIN runner_orders AS ro ON co.order_id = ro.order_id
-GROUP BY customer_id;
+  record,
+  STRING_AGG(change,' ') AS final_toppings
+INTO #toppings
+FROM change_cte
+GROUP BY record;
+
+--Join pizza names with final toppings list
+
+SELECT 
+  customer_orders.record,
+  CONCAT(pizza_name, final_toppings, ' ') AS details
+FROM customer_orders
+JOIN pizza_names ON customer_orders.pizza_id = pizza_names.pizza_id
+LEFT JOIN #toppings ON customer_orders.record = #toppings.record;
 ```
    🪄 **Output:**
    
