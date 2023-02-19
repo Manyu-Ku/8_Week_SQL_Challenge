@@ -157,7 +157,7 @@ LEFT JOIN #toppings ON customer_orders.record = #toppings.record;
 
 <hr>
 
-### 5. What was the difference between the longest and shortest delivery times for all orders?
+### 5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients?
 ```sql
 SELECT
   MAX(duration) - MIN(duration) AS min_difference
