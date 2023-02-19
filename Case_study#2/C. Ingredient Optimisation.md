@@ -153,7 +153,7 @@ LEFT JOIN #toppings ON customer_orders.record = #toppings.record;
 ```
    🪄 **Output:**
    
-<img width="180" alt="c2_b4" src="https://user-images.githubusercontent.com/122411152/213611299-503caeb2-805b-45fb-85cd-905b819b0a06.png">
+<img width="400" alt="c2_c4" src="https://user-images.githubusercontent.com/122411152/219909293-bceb43ad-233b-48ca-8b15-eedf17843a3e.png">
 
 <hr>
 
