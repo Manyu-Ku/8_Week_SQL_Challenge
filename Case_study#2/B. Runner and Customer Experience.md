@@ -115,7 +115,7 @@ GROUP BY runner_id;
 ```
    🪄 **Output:**
    
-| Speed per Oder | Avg Speed per Runner |
+| Speed per Order | Avg Speed per Runner |
 | --- | ---|
 | <img width="170" alt="c2_b6_1" src="https://user-images.githubusercontent.com/122411152/213879137-12fe019f-367f-410d-b7dd-840d5923f631.png"> | <img width="140" alt="c2_b6_2" src="https://user-images.githubusercontent.com/122411152/213879188-c7817d0d-6d5d-4e13-883d-187b70647c07.png"> |
 
