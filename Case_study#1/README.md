@@ -12,6 +12,7 @@ Danny wants to use the data to answer a few simple questions about his customers
 
 ## Case Study Questions
 <details><summary>Click to expand</summary>
+
 1. What is the total amount each customer spent at the restaurant?
 
 2. How many days has each customer visited the restaurant?
