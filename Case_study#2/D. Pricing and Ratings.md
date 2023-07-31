@@ -5,33 +5,27 @@
 <hr>
 
 
-### 1. What are the standard ingredients for each pizza?
+### 1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes - how much money has Pizza Runner made so far if there are no delivery fees??
 ```sql
-WITH topping_split_cte AS(
-  SELECT 
-    pizza_id, 
-    TRIM(value) AS topping_id
-  FROM pizza_recipes
-  CROSS APPLY STRING_SPLIT(CAST(toppings AS VARCHAR), ',')
-	)
-
 SELECT 
   pizza_id,
-  STRING_AGG(CAST(topping_name AS VARCHAR), ', ') AS ingredients
-INTO recipes
-FROM topping_split_cte AS split
-JOIN pizza_toppings AS topping ON split.topping_id = topping.topping_id
+  COUNT(pizza_id) order_count,
+  CASE 
+    WHEN pizza_id = 1 THEN 12
+    ELSE 10
+  END AS price
+INTO #pizza_price
+FROM customer_orders c
+JOIN runner_orders r ON c.order_id = r.order_id
+WHERE cancellation IS NULL
 GROUP BY pizza_id;
 
-SELECT 
-  pizza_name,
-  ingredients
-FROM pizza_names
-JOIN recipes ON pizza_names.pizza_id = recipes.pizza_id;
+SELECT SUM(order_count*price) total_sales
+FROM #pizza_price;
 ```
    🪄 **Output:**
 
-<img width="430" alt="c2_c1" src="https://user-images.githubusercontent.com/122411152/218226258-9f17647a-6e3a-4f43-af3b-0cc52af93173.png">
+![c2_d1](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/assets/122411152/48effac0-a6a5-48e7-9aa8-5e65b003f582)
 
 <hr>
 
