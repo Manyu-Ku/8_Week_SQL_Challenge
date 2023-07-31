@@ -275,4 +275,4 @@ ORDER BY record;
 <hr>
 
 
-👉Click to see next section [D. Pricing and Ratings ](Bonus_questions_solutions.md)
+👉Click to see next section [D. Pricing and Ratings ](D.%20Pricing%20and%20Ratings.md)
