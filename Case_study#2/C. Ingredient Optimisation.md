@@ -274,7 +274,7 @@ ORDER BY record;
 
 <hr>
 
-### 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
+### 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
 ```sql
 -- speed(km/hr) = distance(km) / duration(min) * 60
 
