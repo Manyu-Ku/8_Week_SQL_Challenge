@@ -274,37 +274,5 @@ ORDER BY record;
 
 <hr>
 
-### 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
-```sql
--- speed(km/hr) = distance(km) / duration(min) * 60
-
--- average speed of each order
-SELECT
-  runner_id,
-  ro.order_id,
-  ROUND(CAST(distance AS FLOAT)/duration*60, 2) AS speed
-FROM customer_orders AS co
-JOIN runner_orders AS ro ON co.order_id = ro.order_id
-WHERE cancellation IS NULL
-GROUP BY runner_id, ro.order_id, distance, duration;
-
--- average speed of each runner
-SELECT
-  runner_id,
-  ROUND(AVG(CAST(distance AS FLOAT)/duration*60), 2) AS avg_speed
-FROM customer_orders AS co
-JOIN runner_orders AS ro ON co.order_id = ro.order_id
-WHERE cancellation IS NULL
-GROUP BY runner_id;  
-```
-   🪄 **Output:**
-   
-| Speed per Order | Avg Speed per Runner |
-| --- | ---|
-| <img width="170" alt="c2_b6_1" src="https://user-images.githubusercontent.com/122411152/213879137-12fe019f-367f-410d-b7dd-840d5923f631.png"> | <img width="140" alt="c2_b6_2" src="https://user-images.githubusercontent.com/122411152/213879188-c7817d0d-6d5d-4e13-883d-187b70647c07.png"> |
-
-Runners' speeds seem to increase with experience.
-
-<hr>
 
 👉Click to see next section [C. Ingredient Optimisation ](Bonus_questions_solutions.md)
