@@ -20,7 +20,8 @@ JOIN runner_orders r ON c.order_id = r.order_id
 WHERE cancellation IS NULL
 GROUP BY pizza_id;
 
-SELECT SUM(order_count*price) total_sales
+SELECT 
+  SUM(order_count*price) AS total_sales
 FROM #pizza_price;
 ```
    🪄 **Output:**
@@ -29,48 +30,32 @@ FROM #pizza_price;
 
 <hr>
 
-### 2. What was the most commonly added extra?
+### 2. What if there was an additional $1 charge for any pizza extras? Add cheese is $1 extra ($2 for extra cheese)--topping_id of cheese = 4
 ```sql
-WITH extra_cte AS(
-  SELECT 
-    TRIM(value) AS extra_topping,
-    COUNT(TRIM(value)) AS frequency
-  FROM customer_orders
-  CROSS APPLY STRING_SPLIT(extras, ',')
-  GROUP BY TRIM(value)
-	)
+SELECT 
+  CASE 
+    WHEN pizza_id = 1 THEN 12
+	  ELSE 10
+  END AS pizza_price,
+  CASE 
+    WHEN LEN(extras) = 1 AND extras <> '4' THEN 1
+	  WHEN LEN(extras) = 1 AND extras = '4' THEN 2
+	  WHEN LEN(extras) > 1 AND extras LIKE '%4%' THEN LEN(extras)/3 + 2
+	  WHEN LEN(extras) > 1 AND extras NOT LIKE '%4%' THEN LEN(extras)/3 +1
+	  ELSE 0
+  END AS extra_charge
+INTO #total_charge
+FROM customer_orders c
+JOIN runner_orders r ON c.order_id = r.order_id
+WHERE cancellation IS NULL;
 
 SELECT 
-  topping_name,
-  frequency
-FROM extra_cte
-JOIN pizza_toppings on extra_cte.extra_topping = pizza_toppings.topping_id
-ORDER BY frequency DESC;
+  SUM(pizza_price) + SUM(extra_charge) AS sales_with_charges
+FROM #total_charge;
 ```
    🪄 **Output:**
    
-<img width="160" alt="c2_c2" src="https://user-images.githubusercontent.com/122411152/218227906-af9f12ef-c1bf-4e3e-a00d-1649df921ba0.png">
+![c2_d2](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/assets/122411152/a10cd344-61ff-45bf-99b8-8d869071546f)
 
 <hr>
 
-### 3. What was the most common exclusion?
-```sql
-WITH excluded_cte AS(
-  SELECT 
-    TRIM(value) AS excluded_topping,
-    COUNT(TRIM(value)) AS frequency
-  FROM customer_orders
-  CROSS APPLY STRING_SPLIT(exclusions, ',')
-  GROUP BY TRIM(value)
-	)
-
-SELECT 
-  topping_name,
-  frequency
-FROM excluded_cte
-JOIN pizza_toppings on excluded_cte.excluded_topping = pizza_toppings.topping_id
-ORDER BY frequency DESC;
-```
-   🪄 **Output:**
-   
-<img width="160" alt="c2_c3" src="https://user-images.githubusercontent.com/122411152/218228645-ecce85d8-6bfe-4ea8-b3d4-3505458ec8d8.png">
