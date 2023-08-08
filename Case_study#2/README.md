@@ -79,7 +79,7 @@ Throughout this case study, you will find sections on:
       6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
 </details>
 
-**D. Pricing and Ratings**
+**[D. Pricing and Ratings](D.%20Pricing%20and%20Ratings.md)**
 
 <hr>
 
