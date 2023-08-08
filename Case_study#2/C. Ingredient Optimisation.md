@@ -272,7 +272,35 @@ ORDER BY record;
    
 <img width="450" alt="c2_c5" src="https://user-images.githubusercontent.com/122411152/219932668-5086af50-b712-4f29-9c0c-a19f5b5770d3.png">
 
+### 6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
+```sql
+--Using the temp tables #templist and #add from question 5
+
+WITH toppings_cte AS(
+  SELECT * FROM #templist
+  UNION ALL
+  SELECT * FROM #add
+)
+
+SELECT 
+ recipe AS topping_id,
+ COUNT(recipe) AS frequency
+INTO #freq
+FROM toppings_cte
+GROUP BY recipe;
+
+SELECT
+ topping_name,
+ frequency
+FROM #freq
+JOIN pizza_toppings ON #freq.topping_id =pizza_toppings.topping_id
+ORDER BY frequency DESC;
+```
+   🪄 **Output:**
+   
+![c2_c6](https://github.com/Manyu-Ku/8_Week_SQL_Challenge/assets/122411152/6550849b-a2eb-47ce-b950-34f88d2807de)
+
 <hr>
 
 
-👉Click to see next section [D. Pricing and Ratings ](D.%20Pricing%20and%20Ratings.md)
+👉Click to see the next section [D. Pricing and Ratings ](D.%20Pricing%20and%20Ratings.md)
